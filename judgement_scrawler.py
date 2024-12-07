@@ -263,6 +263,9 @@ class JudgementScrawler:
             print(f"已儲存案件數: {count}/{len(judgement_links)}")
         print("案件全數抓取完成，程式結束。")
 
+    def sleep(self, low_bound_sec, high_bound_sec):
+        self.driver.sleep(low_bound_sec, high_bound_sec)
+
 async def get_single_judgement_docs(court_name):
     JudgementScrawler01 = JudgementScrawler()
     await JudgementScrawler01.get_all_judgement_page(search_str='刑事判決', court_name=court_name, judgement_type='刑事')
